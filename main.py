@@ -12,5 +12,5 @@ ev3.light.on(Color.ORANGE)
 brightness = nxtdevices.LightSensor(Port.S1)
 
 while True:
-    ev3.screen.print(brightness.reflection())
+    ev3.screen.print(brightness.ambient())
     wait(1000)
