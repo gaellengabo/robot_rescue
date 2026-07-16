@@ -6,6 +6,9 @@ from pybricks.robotics import DriveBase
 from pybricks.tools import wait
 from pybricks.ev3devices import LightSensor
 
+ev3 = EV3Brick()
+ev3.light.on(Color.ORANGE)
+
 brightness = LightSensor(Port.S1)
 
 while True:
