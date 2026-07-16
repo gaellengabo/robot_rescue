@@ -1,4 +1,4 @@
-from pybricks.ev3devices import Motor, ColorSensor
+from pybricks.ev3devices import Motor, LightSensor
 
 brightness = LightSensors(Port.A)
 
