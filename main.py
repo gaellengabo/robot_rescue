@@ -4,12 +4,12 @@ from pybricks.ev3devices import Motor
 from pybricks.parameters import Port, Color
 from pybricks.robotics import DriveBase
 from pybricks.tools import wait
-from pybricks.ev3devices import LightSensor
+from pybricks.ev3devices import ColorSensor
 
 ev3 = EV3Brick()
 ev3.light.on(Color.ORANGE)
 
-brightness = LightSensor(Port.S1)
+brightness = ColorSensor(Port.S1)
 
 while True:
   screen.print(brightness.reflection())
