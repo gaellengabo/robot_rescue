@@ -9,7 +9,7 @@ ev3 = EV3Brick()
 ev3.light.on(Color.ORANGE)
 
 # Make sure your sensor is physically plugged into Port 1!
-brightness = nxtdevices.TouchSensor(Port.S1)
+brightness = nxtdevices.LightSensor(Port.S1)
 
 while True:
     ev3.screen.print(brightness.reflection())
