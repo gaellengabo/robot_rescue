@@ -1,6 +1,6 @@
 from pybricks.ev3devices import Motor, LightSensor
 
-brightness = LightSensors(Port.A)
+brightness = LightSensors(Port.1)
 
 while True:
   screen.print(brightness.reflection())
