@@ -13,4 +13,4 @@ brightness = nxtdevices.LightSensor(Port.S1)
 
 while True:
     ev3.screen.print(brightness.reflection())
-    wait(1000)
+    wait(500)
