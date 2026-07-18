@@ -14,6 +14,9 @@ line_sensor = ColorSensor(Port.S1)
 
 robot = DriveBase(left_motor, right_motor, wheel_diameter=56, axle_track=114)
 
-BLACK_VALUE = 7     
-WHITE_VALUE = 25     
-SETPOINT = (BLACK_VALUE + WHITE_VALUE) / 2
+black_value = 7     
+white_value = 25     
+setpoint = (black_value + white_value) / 2
+
+kp = 1.4             
+base_speed = 100
