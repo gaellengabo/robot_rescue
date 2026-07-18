@@ -18,13 +18,13 @@ robot = DriveBase(left_motor, right_motor, wheel_diameter=56, axle_track=114)
 
 BLACK_VALUE = 7     
 WHITE_VALUE = 25
-BLUE_RGB = 
+BLUE_R = 0
+BLUE_B = 100
+BLUE_G = 0
 SETPOINT = (BLACK_VALUE + WHITE_VALUE) / 2
 
 KP = 3.1             
 BASE_SPEED = 56
-
-
 
 while True:
     brightness = line_sensor.reflection()
