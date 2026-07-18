@@ -20,3 +20,17 @@ setpoint = (black_value + white_value) / 2
 
 kp = 1.4             
 base_speed = 100
+
+while True:
+    brightness = line_sensor.reflection()
+    
+    # Proportional error formula from worksheet
+    error = setpoint - brightness
+    
+    # Calculate turn speed based on how far off the line edge the robot is
+    turn_rate = kp * error
+    
+    # Execute movement
+    robot.drive(base_speed, turn_rate)
+    
+    wait(10)
