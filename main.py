@@ -25,8 +25,8 @@ BASE_SPEED = 100
 while True:
     brightness = line_sensor.reflection()
 
-    screen.clear()
-    screen.print(brightness)
+    ev3.screen.clear()
+    ev3.screen.print(brightness)
 
     # Proportional error formula from worksheet
     error = SETPOINT - brightness
