@@ -8,3 +8,9 @@ from pybricks import nxtdevices
 
 ev3 = EV3Brick()
 ev3.light.on(Color.ORANGE)
+color = ColorSensor(Port.S4)
+
+while True:
+  ev3.screen.clear()
+  ev3.screen.print(color.rgb())
+  wait(500)
