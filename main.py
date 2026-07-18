@@ -19,8 +19,8 @@ BLACK_VALUE = 7
 WHITE_VALUE = 25     
 SETPOINT = (BLACK_VALUE + WHITE_VALUE) / 2
 
-KP = 2.0             
-BASE_SPEED = 100
+KP = 2.5             
+BASE_SPEED = 65
 
 while True:
     brightness = line_sensor.reflection()
