@@ -14,23 +14,23 @@ line_sensor = ColorSensor(Port.S1)
 
 robot = DriveBase(left_motor, right_motor, wheel_diameter=56, axle_track=114)
 
-black_value = 7     
-white_value = 25     
-setpoint = (black_value + white_value) / 2
+BLACK_VALUE = 7     
+WHITE_VALUE = 25     
+SETPOINT = (BLACK_VALUE + WHITE_VALUE) / 2
 
-kp = 0.8             
-base_speed = 100
+KP = 1.5             
+BASE_SPEED = 100
 
 while True:
     brightness = line_sensor.reflection()
     
     # Proportional error formula from worksheet
-    error = setpoint - brightness
+    error = SETPOINT - brightness
     
     # Calculate turn speed based on how far off the line edge the robot is
-    turn_rate = kp * error
+    turn_rate = KP * error
     
     # Execute movement
-    robot.drive(base_speed, turn_rate)
+    robot.drive(BASE_SPEED, turn_rate)
     
     wait(10)
