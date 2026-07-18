@@ -2,15 +2,17 @@
 #!/usr/bin/env pybricks-micropython
 from pybricks.hubs import EV3Brick
 from pybricks.ev3devices import Motor, ColorSensor
-from pybricks.parameters import Port
+from pybricks.parameters import Port, Color
 from pybricks.robotics import DriveBase
 from pybricks.tools import wait
+from pybricks import nxtdevices
 
 ev3 = EV3Brick()
+ev3.light.on(Color.ORANGE)
 
 left_motor = Motor(Port.A)   
 right_motor = Motor(Port.D)  
-line_sensor = ColorSensor(Port.S1)
+line_sensor = nxtdevices.LightSensor(Port.S1)
 
 robot = DriveBase(left_motor, right_motor, wheel_diameter=56, axle_track=114)
 
