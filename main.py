@@ -18,7 +18,7 @@ black_value = 7
 white_value = 25     
 setpoint = (black_value + white_value) / 2
 
-kp = 1.4             
+kp = 0.8             
 base_speed = 100
 
 while True:
