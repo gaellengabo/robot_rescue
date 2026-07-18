@@ -12,18 +12,23 @@ ev3.light.on(Color.ORANGE)
 left_motor = Motor(Port.A)   
 right_motor = Motor(Port.D)  
 line_sensor = nxtdevices.LightSensor(Port.S1)
+color_sensor = ev3devices.ColorSensor(Port.S4)
 
 robot = DriveBase(left_motor, right_motor, wheel_diameter=56, axle_track=114)
 
 BLACK_VALUE = 7     
-WHITE_VALUE = 25     
+WHITE_VALUE = 25
+BLUE_RGB = 
 SETPOINT = (BLACK_VALUE + WHITE_VALUE) / 2
 
 KP = 3.1             
 BASE_SPEED = 56
 
+
+
 while True:
     brightness = line_sensor.reflection()
+    color = color_sensor.rgb()
 
     ev3.screen.clear()
     ev3.screen.print(brightness)
