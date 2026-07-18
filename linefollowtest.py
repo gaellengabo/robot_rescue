@@ -1,5 +1,4 @@
 #we need to find the white and black values
-<<<<<<< HEAD
 #!/usr/bin/env pybricks-micropython
 from pybricks.hubs import EV3Brick
 from pybricks.ev3devices import Motor, ColorSensor
