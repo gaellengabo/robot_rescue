@@ -6,8 +6,8 @@ from pybricks.robotics import DriveBase
 from pybricks.tools import wait
 from pybricks.ev3devices import LightSensor
 
-brightness = LightSensor(Port.S1)
+color = ColorSensor(Port.S4)
 
 while True:
-  screen.print(brightness.reflection())
+  screen.print(color.rgb())
   wait(1000)
