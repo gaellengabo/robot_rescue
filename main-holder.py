@@ -18,9 +18,7 @@ robot = DriveBase(left_motor, right_motor, wheel_diameter=56, axle_track=114)
 
 BLACK_VALUE = 7     
 WHITE_VALUE = 25
-BLUE_R = 0
-BLUE_B = 100
-BLUE_G = 0
+BLUE_RGB = (0, 0, 100)
 SETPOINT = (BLACK_VALUE + WHITE_VALUE) / 2
 
 KP = 3.1             
@@ -29,6 +27,9 @@ BASE_SPEED = 56
 while True:
     brightness = line_sensor.reflection()
     color = color_sensor.rgb()
+
+    if (color[0] == BLUE_RGB[0] and color[1] == BLUE_RGB[1] and color[2] == BLUE_RGB[2]):
+        ev3.speaker.beep()
 
     ev3.screen.clear()
     ev3.screen.print(brightness)
