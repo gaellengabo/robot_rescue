@@ -21,8 +21,8 @@ BLACK_VALUE = 7
 WHITE_VALUE = 25
 SETPOINT = (BLACK_VALUE + WHITE_VALUE) / 2
 
-KP = 3.1             
-BASE_SPEED = 56
+KP = 3.5             
+BASE_SPEED = 50
 
 RED_MIN = 3
 RED_MAX = 5
