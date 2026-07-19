@@ -42,11 +42,6 @@ while True:
         ev3.speaker.beep(frequency=800, duration=150)
         print("Blue detected! {}".format(color))
 
-    if brightness >= 24:
-        robot.drive(0, 120) 
-        wait(100) 
-        continue
-
     # normal line following
     error = SETPOINT - brightness
     turn_rate = KP * error
