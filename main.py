@@ -38,10 +38,9 @@ while True:
     ev3.screen.clear()
     ev3.screen.print(brightness)
 
-    if color[0] >= RED_MIN and color[0] <= RED_MAX and color[1] >= GREEN_MIN and color[1] <= GREEN_MAX and color[2] >= BLUE_MIN and color[2] <= BLUE_MAX: 
+   if color[0] >= RED_MIN and color[0] <= RED_MAX and color[1] >= GREEN_MIN and color[1] <= GREEN_MAX and color[2] >= BLUE_MIN and color[2] <= BLUE_MAX:
         ev3.speaker.beep(frequency=800, duration=150)
-        print(f"Blue detected! {color}")
-
+        print("Blue detected! {}".format(color))
 
   if brightness >= 24:
         robot.drive(0, 120) 
