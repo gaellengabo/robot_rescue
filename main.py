@@ -17,7 +17,7 @@ color_sensor = ColorSensor(Port.S4)
 
 robot = DriveBase(left_motor, right_motor, wheel_diameter=56, axle_track=114)
 
-BLACK_VALUE = 7     
+BLACK_VALUE = 3    
 WHITE_VALUE = 25
 SETPOINT = (BLACK_VALUE + WHITE_VALUE) / 2
 
