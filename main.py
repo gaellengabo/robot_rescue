@@ -27,8 +27,6 @@ BLUE_B = 100
 KP = 3.1             
 BASE_SPEED = 
 
-saw_blue = False
-
 while True:
     brightness = line_sensor.reflection()
     r, g, b = color_sensor.rgb()
@@ -38,12 +36,10 @@ while True:
 
     # Blue Marker Check
     if b > 40 and b > r and b > g: 
-        if not saw_blue:
-            ev3.speaker.beep(frequency=800, duration=150)
-            print("Blue detected! RGB: ({}, {}, {})".format(r, g, b))
-            saw_blue = True
-    else:
-        saw_blue = False # Resets when the robot leaves the blue tape
+        robot.stop()
+        ev3.speaker.beep(frequency=800, duration=250)
+        print("Blue detected! RGB: ({}, {}, {})".format(r, g, b))
+        robot.straight(20) # Move past marker slightly to prevent double-beeping
 
     # Sharp Curve Recovery
     if brightness >= 24:
