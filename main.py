@@ -24,15 +24,15 @@ SETPOINT = (BLACK_VALUE + WHITE_VALUE) / 2
 KP = 3.1             
 BASE_SPEED = 56
 
-RED_MAX = 5
 RED_MIN = 3
-GREEN_MAX 5
+RED_MAX = 5
 GREEN_MIN = 3
-BLUE_MAX = 16
+GREEN_MAX = 5
 BLUE_MIN = 13
+BLUE_MAX = 16
 
 while True:
-    brightness = line_sensor.ambient()
+    brightness = line_sensor.reflection()
     color = color_sensor.rgb()
 
     ev3.screen.clear()
@@ -41,6 +41,12 @@ while True:
     if color[0] >= RED_MIN and color[0] <= RED_MAX and color[1] >= GREEN_MIN and color[1] <= GREEN_MAX and color[2] >= BLUE_MIN and color[2] <= BLUE_MAX: 
         ev3.speaker.beep(frequency=800, duration=150)
         print(f"Blue detected! {color}")
+
+
+  if brightness >= 24:
+        robot.drive(0, 120) 
+        wait(100) 
+        continue
 
     # normal line following
     error = SETPOINT - brightness
