@@ -20,12 +20,8 @@ BLACK_VALUE = 7
 WHITE_VALUE = 25
 SETPOINT = (BLACK_VALUE + WHITE_VALUE) / 2
 
-BLUE_R = 0
-BLUE_G = 0
-BLUE_B = 100
-
 KP = 3.1             
-BASE_SPEED = 
+BASE_SPEED = 56
 
 while True:
     brightness = line_sensor.reflection()
@@ -34,21 +30,17 @@ while True:
     ev3.screen.clear()
     ev3.screen.print(brightness)
 
-    # Blue Marker Check
-    if b > 40 and b > r and b > g: 
-        robot.stop()
-        ev3.speaker.beep(frequency=800, duration=250)
+    if b >= 9 and r <= 6 and g <= 6: 
+        ev3.speaker.beep(frequency=800, duration=150)
         print("Blue detected! RGB: ({}, {}, {})".format(r, g, b))
-        robot.straight(20) # Move past marker slightly to prevent double-beeping
 
-    # Sharp Curve Recovery
     if brightness >= 24:
         ev3.speaker.beep(frequency=400, duration=100)
         robot.drive(0, 120) 
-        wait(100) # Give the robot a moment to swing back toward the black line
+        wait(100) 
         continue
 
-    # Normal Line Following
+    # norml line following
     error = SETPOINT - brightness
     turn_rate = KP * error
     robot.drive(BASE_SPEED, turn_rate)
