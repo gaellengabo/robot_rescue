@@ -3,7 +3,7 @@ from pybricks.hubs import EV3Brick
 from pybricks.ev3devices import Motor, ColorSensor
 from pybricks.parameters import Port, Color, Stop
 from pybricks.robotics import DriveBase
-from pybricks.tools import wait
+from pybricks.tools import wait, StopWatch
 from pybricks import nxtdevices
 
 ev3 = EV3Brick()
@@ -14,6 +14,7 @@ right_motor = Motor(Port.D)
 
 line_sensor = nxtdevices.LightSensor(Port.S1)
 color_sensor = ColorSensor(Port.S4)
+timer = StopWatch()
 
 robot = DriveBase(left_motor, right_motor, wheel_diameter=56, axle_track=114)
 
@@ -31,12 +32,29 @@ GREEN_MAX = 3
 BLUE_MIN = 0
 BLUE_MAX = 2
 
+RED_MIN1 = 3
+RED_MAX1 = 5
+GREEN_MIN1 = 3
+GREEN_MAX1 = 5
+BLUE_MIN1 = 13
+BLUE_MAX1 = 16
+
+timer.reset()
+timer.resume()
+
 while True:
     brightness = line_sensor.reflection()
     color = color_sensor.rgb()
 
     ev3.screen.clear()
     ev3.screen.print(brightness)
+
+    if color[0] >= RED_MIN1 and color[0] <= RED_MAX1 and color[1] >= GREEN_MIN1 and color[1] <= GREEN_MAX1 and color[2] >= BLUE_MIN1 and color[2] <= BLUE_MAX1:
+        if(timer.time() >= 3000):
+            ev3.speaker.beep(frequency=800, duration=150)
+            print("Blue! {}".format(color))
+            timer.reset()
+
 
     if color[0] >= RED_MIN and color[0] <= RED_MAX and color[1] >= GREEN_MIN and color[1] <= GREEN_MAX and color[2] >= BLUE_MIN and color[2] <= BLUE_MAX:
         ev3.speaker.beep(frequency=800, duration=150)
