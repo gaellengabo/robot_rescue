@@ -27,6 +27,9 @@ ultrasonic = UltrasonicSensor(Port.S1)
 
 DETECTION_DISTANCE = 76
 
+BLACK_VALUE = 0    
+WHITE_VALUE = 35
+
 while True:
     dist = ultrasonic.distance()
 
