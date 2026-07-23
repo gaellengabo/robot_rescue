@@ -13,7 +13,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 ev3 = EV3Brick()
 
-ev3.light.on(Color.YELLOW)
+ev3.light.on(Color.ORANGE)
 while Button.CENTER not in ev3.buttons.pressed():
     wait(10)
 ev3.light.on(Color.GREEN)
