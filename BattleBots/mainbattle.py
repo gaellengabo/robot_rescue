@@ -25,7 +25,7 @@ right_motor = Motor(Port.C)
 
 ultrasonic = UltrasonicSensor(Port.S1)
 
-DETECTION_DISTANCE = 500
+DETECTION_DISTANCE = 76
 
 while True:
     dist = ultrasonic.distance()
