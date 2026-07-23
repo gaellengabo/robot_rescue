@@ -20,8 +20,23 @@ ev3.light.on(Color.GREEN)
 ev3.speaker.beep()
 wait(5000)
 
+ev3 = EV3Brick()
 
-#PUT YOUR CODE HERE  Delete mine
+left_motor = Motor(Port.B)
+right_motor = Motor(Port.C)
 
-ev3.light.on(Color.RED)
-wait(5000)
+ultrasonic = UltrasonicSensor(Port.S1)
+
+DETECTION_DISTANCE = 500
+
+while True:
+    dist = ultrasonic.distance()
+
+    if dist < DETECTION_DISTANCE:
+        left_motor.run(700)
+        right_motor.run(700)
+    else:
+        left_motor.run(300)
+        right_motor.run(-300)
+
+    wait(20)

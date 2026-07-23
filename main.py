@@ -45,7 +45,6 @@ timer.resume()
 while True:
     brightness = line_sensor.reflection()
     color = color_sensor.rgb()
-
     ev3.screen.clear()
     ev3.screen.print(brightness)
 
