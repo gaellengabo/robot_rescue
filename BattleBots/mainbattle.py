@@ -20,8 +20,6 @@ ev3.light.on(Color.GREEN)
 ev3.speaker.beep()
 wait(5000)
 
-ev3 = EV3Brick()
-
 left_motor = Motor(Port.B)
 right_motor = Motor(Port.C)
 
