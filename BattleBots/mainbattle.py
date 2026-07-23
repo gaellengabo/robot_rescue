@@ -35,6 +35,9 @@ while True:
         right_motor.run(700)
     else:
         left_motor.run(300)
+        
         right_motor.run(-300)
 
     wait(20)
+
+#try to be able to detect other ultrasonic sensors
