@@ -25,4 +25,3 @@ wait(5000)
 
 ev3.light.on(Color.RED)
 wait(5000)
-This topic is closed for comments.
