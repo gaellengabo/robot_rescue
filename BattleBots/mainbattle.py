@@ -1,47 +1,57 @@
 #!/usr/bin/env pybricks-micropython
 from pybricks.hubs import EV3Brick
-from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,
-                                 InfraredSensor, UltrasonicSensor, GyroSensor)
-from pybricks.parameters import Port, Stop, Direction, Button, Color
-from pybricks.tools import wait, StopWatch, DataLog
-from pybricks.robotics import DriveBase
-from pybricks.media.ev3dev import SoundFile, ImageFile
-
-
-# This program requires LEGO EV3 MicroPython v2.0 or higher.
-# Click "Open user guide" on the EV3 extension tab for more information.
+from pybricks.ev3devices import Motor, ColorSensor, UltrasonicSensor
+from pybricks.nxtdevices import LightSensor
+from pybricks.parameters import Port, Color, Button
+from pybricks.tools import wait
 
 ev3 = EV3Brick()
 
-ev3.light.on(Color.ORANGE)
-while Button.CENTER not in ev3.buttons.pressed():
-    wait(10)
-ev3.light.on(Color.GREEN)
-ev3.speaker.beep()
-wait(5000)
-
-left_motor = Motor(Port.B)
-right_motor = Motor(Port.C)
+left_motor = Motor(Port.A)
+right_motor = Motor(Port.D)
 
 ultrasonic = UltrasonicSensor(Port.S1)
+front_sensor = LightSensor(Port.S2) 
+back_sensor = ColorSensor(Port.S3)
 
-DETECTION_DISTANCE = 76
+WHITE_BORDER_THRESHOLD = 35  
+OPPONENT_DISTANCE = 400 
 
-BLACK_VALUE = 0    
-WHITE_VALUE = 35
+ev3.light.on(Color.YELLOW)
+
+while Button.CENTER not in ev3.buttons.pressed():
+    wait(10)
+
+ev3.light.on(Color.GREEN)
+ev3.speaker.beep()
+wait(5000) 
+ev3.light.on(Color.RED)
 
 while True:
+    front_val = front_sensor.reflection()
+    back_val = back_sensor.reflection()
     dist = ultrasonic.distance()
 
-    if dist < DETECTION_DISTANCE:
+    if front_val > WHITE_BORDER_THRESHOLD:
+        left_motor.run(-700)
+        right_motor.run(-700)
+        wait(500)
+        
+        left_motor.run(500)
+        right_motor.run(-500)
+        wait(350)
+
+    elif back_val > WHITE_BORDER_THRESHOLD:
         left_motor.run(700)
-        right_motor.run
-        (700)
+        right_motor.run(700)
+        wait(500)
+
+    elif dist < OPPONENT_DISTANCE:
+        left_motor.run(800)
+        right_motor.run(800)
+
     else:
         left_motor.run(300)
-        
         right_motor.run(-300)
 
-    wait(20)
-
-#try to be able to detect other ultrasonic sensors
+    wait(10)
