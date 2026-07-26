@@ -3,12 +3,15 @@ from pybricks.hubs import EV3Brick
 from pybricks.ev3devices import Motor, ColorSensor
 from pybricks.nxtdevices import LightSensor, UltrasonicSensor
 from pybricks.parameters import Port, Color, Button
+from pybricks.robotics import DriveBase
 from pybricks.tools import wait
 
 ev3 = EV3Brick()
 
 left_motor = Motor(Port.A)
 right_motor = Motor(Port.D)
+
+robot = DriveBase(left_motor, right_motor, wheel_diameter=56, axle_track=114)
 
 ultrasonic = UltrasonicSensor(Port.S2)
 front_sensor = LightSensor(Port.S4) 
@@ -33,26 +36,16 @@ while True:
     dist = ultrasonic.distance()
 
     if front_val > WHITE_BORDER_THRESHOLD:
-        left_motor.run(-700)
-        right_motor.run(-700)
-        wait(500)
-        
-        left_motor.run(500)
-        right_motor.run(-500)
-        wait(350)
+        robot.straight(-150)
+        robot.turn(90)
 
     elif back_val > WHITE_BORDER_THRESHOLD:
-        left_motor.run(700)
-        right_motor.run(700)
-        wait(500)
+        robot.straight(150)
 
     elif dist < OPPONENT_DISTANCE:
-        left_motor.run(800)
-        right_motor.run(800)
+        robot.drive(speed=700, turn_rate=0)
 
     else:
-        left_motor.run(300)
-        right_motor.run(-300)
+        robot.drive(speed=0, turn_rate=120)
 
-    wait(10)
-
+    wait(5)
