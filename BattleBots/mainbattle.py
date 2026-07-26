@@ -36,14 +36,16 @@ while True:
     dist = ultrasonic.distance()
 
     if front_val > WHITE_BORDER_THRESHOLD:
+        robot.stop()
         robot.straight(-150)
         robot.turn(90)
 
     elif back_val > WHITE_BORDER_THRESHOLD:
+        robot.stop()
         robot.straight(150)
 
     elif dist < OPPONENT_DISTANCE:
-        robot.drive(speed=700, turn_rate=0)
+        robot.drive(speed=450, turn_rate=0)
 
     else:
         robot.drive(speed=0, turn_rate=120)
