@@ -45,7 +45,7 @@ while True:
         robot.straight(150)
 
     elif dist < OPPONENT_DISTANCE:
-        robot.drive(speed=450, turn_rate=0)
+        robot.drive(speed=600, turn_rate=0)
 
     else:
         robot.drive(speed=0, turn_rate=120)
