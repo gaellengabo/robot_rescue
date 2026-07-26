@@ -35,7 +35,8 @@ while True:
 
     if dist < DETECTION_DISTANCE:
         left_motor.run(700)
-        right_motor.run(700)
+        right_motor.run
+        (700)
     else:
         left_motor.run(300)
         
