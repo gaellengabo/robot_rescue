@@ -55,3 +55,13 @@ while True:
         right_motor.run(-300)
 
     wait(10)
+
+
+
+# A sensor or motor is not connected to the specified port:
+#--> Check the cables to each motor and sensor.
+
+#--> Check the port settings in your script.
+#--> Check the line in your script that matches
+ #   the line number given in the 'Traceback' above.
+
