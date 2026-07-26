@@ -1,7 +1,7 @@
 #!/usr/bin/env pybricks-micropython
 from pybricks.hubs import EV3Brick
-from pybricks.ev3devices import Motor, ColorSensor, UltrasonicSensor
-from pybricks.nxtdevices import LightSensor
+from pybricks.ev3devices import Motor, ColorSensor
+from pybricks.nxtdevices import LightSensor, UltrasonicSensor
 from pybricks.parameters import Port, Color, Button
 from pybricks.tools import wait
 
@@ -55,13 +55,4 @@ while True:
         right_motor.run(-300)
 
     wait(10)
-
-
-
-# A sensor or motor is not connected to the specified port:
-#--> Check the cables to each motor and sensor.
-
-#--> Check the port settings in your script.
-#--> Check the line in your script that matches
- #   the line number given in the 'Traceback' above.
 
