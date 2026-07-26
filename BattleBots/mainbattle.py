@@ -10,9 +10,9 @@ ev3 = EV3Brick()
 left_motor = Motor(Port.A)
 right_motor = Motor(Port.D)
 
-ultrasonic = UltrasonicSensor(Port.S1)
-front_sensor = LightSensor(Port.S2) 
-back_sensor = ColorSensor(Port.S3)
+ultrasonic = UltrasonicSensor(Port.S2)
+front_sensor = LightSensor(Port.S4) 
+back_sensor = ColorSensor(Port.S1)
 
 WHITE_BORDER_THRESHOLD = 35  
 OPPONENT_DISTANCE = 400 
@@ -22,10 +22,10 @@ ev3.light.on(Color.YELLOW)
 while Button.CENTER not in ev3.buttons.pressed():
     wait(10)
 
-ev3.light.on(Color.GREEN)
+ev3.light.on(Color.RED)
 ev3.speaker.beep()
 wait(5000) 
-ev3.light.on(Color.RED)
+ev3.light.on(Color.GREEN)
 
 while True:
     front_val = front_sensor.reflection()
